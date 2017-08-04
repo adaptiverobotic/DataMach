@@ -15,6 +15,7 @@ object CommonFriend {
       .getOrCreate()
       
       var file = session.sparkContext.textFile("D:\\PangeaProduct\\Deployment\\data\\FPGrowthData\\friends.txt", 1)
+      file.foreach { println}
       var x = file.map { x => (x.split(" ")(0),x.split(" ")(1).split(",")) }.map(f => (f._1,generateCombination(f._2)))
       //var x = file.map { x => (x.split(" ")(0),x.split(" ")(1)) }//.map(f => (f._1,generateCombination(f._2)))
       x.foreach(println)
