@@ -37,7 +37,7 @@ object CommonFriend1 {
       // combining initial rdd and above rdd to ensure we have all individual as keys
       x = x union z
       // removing duplicate keys
-      x = x.reduceByKey((x1,x2) => x1++x2)map(f => (f._1,f._2.distinct))
+      x = x.reduceByKey((x1,x2) => x1++x2).map(f => (f._1,f._2.distinct))
       // finding pair of keys - where keys are not equal
       var a = x.cartesian(x).filter{case (a,b) => a != b}.map{case (a,b)=> ((a._1,b._1),a._2.intersect(b._2))}
       a.foreach(println)
