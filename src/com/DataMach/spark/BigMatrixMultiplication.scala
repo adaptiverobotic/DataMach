@@ -21,6 +21,7 @@ import breeze.numerics._
 object BigMatrixMultiplication {
   
   def main(args: Array[String]) {
+    // new version added
     var session = SparkSession.builder()
       // uncomment below line for local testing 
       .master("local").config("spark.pangea.ae.LOGGER", true)
